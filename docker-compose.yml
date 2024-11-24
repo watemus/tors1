@@ -1,0 +1,41 @@
+services:
+  main:
+    build: .
+    command: ./main
+    networks:
+      - default
+    depends_on:
+      - worker1
+      - worker2
+      - worker3
+      - worker4
+      - worker5
+  worker1:
+    build: .
+    command: ./worker
+    networks:
+      - default
+  worker2:
+    build: .
+    command: ./worker
+    networks:
+      - default
+  worker3:
+    build: .
+    command: ./worker
+    networks:
+      - default
+  worker4:
+    build: .
+    command: ./worker
+    networks:
+      - default
+  worker5:
+    build: .
+    command: ./worker
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
